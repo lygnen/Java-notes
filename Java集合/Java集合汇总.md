@@ -86,6 +86,7 @@ TreeMap 实现 SortMap 接口，能够把它保存的记录 == 根据键排序 =
 
 ## map 的遍历
 **第一种：KeySet()**
+
 将 Map 中所有的键存入到 set 集合中。因为 set 具备迭代器。所有可以迭代方式取出所有的键，再根据 get 方法。获取每一个键对应的值。 keySet(): 迭代后只能通过 get() 取 key 。取到的结果会乱序，是因为取得数据行主键的时候，使用了 HashMap.keySet() 方法，而这个方法返回的 Set 结果，里面的数据是乱序排放的。
 典型用法如下：
 
@@ -105,6 +106,7 @@ while(it.hasNext()){
 ```
 
 **第二种：entrySet（）**
+
 Set> entrySet()// 返回此映射中包含的映射关系的 Set 视图。（一个关系就是一个键 - 值对），就是把 (key-value) 作为一个整体一对一对地存放到 Set 集合当中的。Map.Entry 表示映射关系。entrySet()：迭代后可以 e.getKey()，e.getValue()两种方法来取 key 和 value。返回的是 Entry 接口。
 典型用法如下：
 
@@ -122,7 +124,7 @@ while(it.hasNext()){
 }
 ```
 **推荐使用第二种方式，即 entrySet() 方法，效率较高。
-对于 keySet 其实是遍历了 2 次，一次是转为 iterator，一次就是从 HashMap 中取出 key 所对于的 value。而 entryset 只是遍历了第一次，它把 key 和 value 都放到了 entry 中，所以快了。两种遍历的遍历时间相差还是很明显的。
+对于 keySet 其实是遍历了 2 次，一次是转为 iterator，一次就是从 HashMap 中取出 key 所对于的 value。而 entryset 只是遍历了第一次，它把 key 和 value 都放到了 entry 中，所以快了。两种遍历的遍历时间相差还是很明显的。**
 
 # 七、主要实现类区别小结
 - Vector 和 ArrayList
@@ -136,14 +138,14 @@ while(it.hasNext()){
 2. 对于随机访问 get 和 set，ArrayList 觉得优于 LinkedList，因为 LinkedList 要移动指针。
 3. 对于新增和删除操作 add 和 remove，LinedList 比较占优势，因为 ArrayList 要移动数据。 这一点要看实际情况的。若只对单条数据插入或删除，ArrayList 的速度反而优于 LinkedList。但若是批量随机的插入删除数据，LinkedList 的速度大大优于 ArrayList. 因为 ArrayList 每插入一条数据，要移动插入点及之后的所有数据。
 
- HashMap 与 TreeMap
+- HashMap 与 TreeMap
 1. HashMap 通过 hashcode 对其内容进行快速查找，而 TreeMap 中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用 TreeMap（HashMap 中元素的排列顺序是不固定的）。
 2. 在 Map 中插入、删除和定位元素，HashMap 是最好的选择。但如果您要按自然顺序或自定义顺序遍历键，那么 TreeMap 会更好。使用 HashMap 要求添加的键类明确定义了 hashCode()和 equals() 的实现。两个 map 中的元素一样，但顺序不一样，导致 hashCode() 不一样。
 同样做测试：
 在 HashMap 中，同样的值的 map, 顺序不同，equals 时，false;
 而在 treeMap 中，同样的值的 map, 顺序不同,equals 时，true，说明，treeMap 在 equals() 时是整理了顺序了的。
 
-HashTable 与 HashMap
+- HashTable 与 HashMap
 1. 同步性:Hashtable 是线程安全的，也就是说是同步的，而 HashMap 是线程序不安全的，不是同步的。
 2. HashMap 允许存在一个为 null 的 key，多个为 null 的 value 。
 3. hashtable 的 key 和 value 都不允许为 null。
