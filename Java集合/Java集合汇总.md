@@ -1,6 +1,6 @@
->作者：washmore
-链接：https://hacpai.com/article/1523869541981
-来源：黑客派
+>作者：washmore     
+>链接：https://hacpai.com/article/1523869541981
+
 
 
 # 一、集合与数组
@@ -10,7 +10,7 @@
 
 # 二、层次关系
 如图所示：图中，实线边框的是实现类，折线边框的是抽象类，而点线边框的是接口 
-
+<div align="center"> <img src="https://file.washmore.tech/connect.jpg" width=""/> </div><br>
 ==Collection== 接口是集合类的根接口，Java 中没有提供这个接口的直接的实现类。但是却让其被继承产生了两个接口，就是 ==Set 和 List==。==Set 中不能包含重复的元素。List 是一个有序的集合，可以包含重复的元素，提供了按索引访问的方式。==
 
 ==Map== 是 Java.util 包中的另一个接口，它和 Collection 接口没有关系，是相互独立的，但是都属于集合类的一部分。Map 包含了 key-value 对。==Map 不能包含重复的 key，但是可以包含相同的 value。==
