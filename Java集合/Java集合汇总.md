@@ -32,7 +32,7 @@ Map 集合中存储的是键值对，键不能重复，值可以重复。根据�
 
 对比如下：
 
-
+<div align="center"> <img src="/photo/table.jpg" width=""/> </div><br>
 
 # 四、遍历
 在类集中提供了以下四种的常见输出方式：
