@@ -11,11 +11,11 @@
 # 二、层次关系
 如图所示：图中，实线边框的是实现类，折线边框的是抽象类，而点线边框的是接口 
 <div align="center"> <img src="/photo/connect.jpg" width=""/> </div><br>
-==Collection== 接口是集合类的根接口，Java 中没有提供这个接口的直接的实现类。但是却让其被继承产生了两个接口，就是 ==Set 和 List==。==Set 中不能包含重复的元素。List 是一个有序的集合，可以包含重复的元素，提供了按索引访问的方式。
+Collection 接口是集合类的根接口，Java 中没有提供这个接口的直接的实现类。但是却让其被继承产生了两个接口，就是 Set 和 List。Set 中不能包含重复的元素。List 是一个有序的集合，可以包含重复的元素，提供了按索引访问的方式。
 
-==Map== 是 Java.util 包中的另一个接口，它和 Collection 接口没有关系，是相互独立的，但是都属于集合类的一部分。Map 包含了 key-value 对。==Map 不能包含重复的 key，但是可以包含相同的 value。==
+Map 是 Java.util 包中的另一个接口，它和 Collection 接口没有关系，是相互独立的，但是都属于集合类的一部分。Map 包含了 key-value 对。Map 不能包含重复的 key，但是可以包含相同的 value。
 
-==Iterator==，所有的集合类，都实现了 Iterator 接口，这是一个用于遍历集合中元素的接口，主要包含以下三种方法：
+Iterator，所有的集合类，都实现了 Iterator 接口，这是一个用于遍历集合中元素的接口，主要包含以下三种方法：
 
 hasNext() 是否还有下一个元素。
 next() 返回下一个元素。
@@ -63,26 +63,26 @@ Iterator it = arr.iterator();
 while(it.hasNext()){ object o =it.next(); ...}
 ```
 # 五、ArrayList 和 LinkedList
-ArrayList 和 LinkedList 在用法上没有区别，但是在功能上还是有区别的。==LinkedList 经常用在增删操作较多而查询操作很少的情况下，ArrayList 则相反。
+ArrayList 和 LinkedList 在用法上没有区别，但是在功能上还是有区别的。LinkedList 经常用在增删操作较多而查询操作很少的情况下，ArrayList 则相反。
 
 # 六、Map 集合
 ## 实现类
 HashMap、Hashtable、LinkedHashMap 和 TreeMap
 
 ## HashMap
-HashMap 是最常用的 Map，它根据键的 HashCode 值存储数据，根据键可以直接获取它的值，具有很快的访问速度，== 遍历时，取得数据的顺序是完全随机的 ==。因为 == 键对象不可以重复 ==，所以 HashMap 最多只允许一条记录的键为 Null，允许多条记录的值为 Null，是非同步的
+HashMap 是最常用的 Map，它根据键的 HashCode 值存储数据，根据键可以直接获取它的值，具有很快的访问速度，遍历时，取得数据的顺序是完全随机的。因为  键对象不可以重复，所以HashMap最多只允许一条记录的键为Null，允许多条记录的值为Null，是非同步的
 
 ## Hashtable
-Hashtable 与 HashMap 类似，是 HashMap 的 == 线程安全 == 版，它支持线程的同步，即任一时刻只有一个线程能写 Hashtable，因此也导致了 Hashtale 在写入时会比较慢，它继承自 Dictionary 类，不同的是它不允许记录的键或者值为 null，同时效率较低。
+Hashtable 与 HashMap 类似，是HashMap的线程安全版，它支持线程的同步，即任一时刻只有一个线程能写 Hashtable，因此也导致了 Hashtale 在写入时会比较慢，它继承自 Dictionary 类，不同的是它不允许记录的键或者值为 null，同时效率较低。
 
 ## ConcurrentHashMap(jdk1.8 以下的实现)
 线程安全，并且锁分离。ConcurrentHashMap 内部使用段 (Segment) 来表示这些不同的部分，每个段其实就是一个小的 hash table，它们有自己的锁。只要多个修改操作发生在不同的段上，它们就可以并发进行。
 
 ## LinkedHashMap
-LinkedHashMap== 保存了记录的插入顺序 ==，在用 Iteraor 遍历 LinkedHashMap 时，先得到的记录肯定是先插入的，在遍历的时候会比 HashMap 慢，有 HashMap 的全部特性。
+LinkedHashMap 保存了记录的插入顺序，在用 Iteraor 遍历 LinkedHashMap 时，先得到的记录肯定是先插入的，在遍历的时候会比 HashMap 慢，有 HashMap 的全部特性。
 
 ## TreeMap
-TreeMap 实现 SortMap 接口，能够把它保存的记录 == 根据键排序 ==，默认是按键值的升序排序（自然顺序），也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。不允许 key 值为空，非同步的；
+TreeMap 实现 SortMap 接口，能够把它保存的记录根据键排序，默认是按键值的升序排序（自然顺序），也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时，得到的记录是排过序的。不允许 key 值为空，非同步的；
 
 ## map 的遍历
 **第一种：KeySet()**
