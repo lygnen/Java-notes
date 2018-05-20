@@ -1,4 +1,4 @@
-# Java-notes
+# Java-note
 
 >Record some interview questions that you face while studying in peacetime
 
